@@ -1,24 +1,258 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>shadow-guard-digital-forge</title>
-    <meta name="description" content="Lovable Generated Project" />
-    <meta name="author" content="Lovable" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Tactical Services - Veteran-Led Security Solutions</title>
+    <meta name="description" content="Professional security and tactical services provided by experienced military veterans">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">ELITE</span>
+                <span class="logo-accent">TACTICAL</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">HOME</a></li>
+                <li><a href="#services" class="nav-link">SERVICES</a></li>
+                <li><a href="#team" class="nav-link">TEAM</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <meta property="og:title" content="shadow-guard-digital-forge" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">ELITE TACTICAL</span>
+                    <span class="title-line">OPERATIONS</span>
+                </h1>
+                <p class="hero-subtitle">Veteran-Led Security Solutions</p>
+                <p class="hero-description">
+                    Professional security, training, and tactical services delivered by battle-tested military veterans. 
+                    When precision matters, trust those who've served.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('services')">OUR SERVICES</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('contact')">GET INTEL</button>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Years Combined Experience</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Missions Completed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Operational Ready</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">TACTICAL SERVICES</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Personal Security</h3>
+                    <p>Executive protection and personal security services with military precision and discretion.</p>
+                    <ul class="service-features">
+                        <li>VIP Protection</li>
+                        <li>Threat Assessment</li>
+                        <li>Secure Transport</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Tactical Training</h3>
+                    <p>Professional firearms and tactical training programs designed by combat veterans.</p>
+                    <ul class="service-features">
+                        <li>Firearms Training</li>
+                        <li>Tactical Movement</li>
+                        <li>Combat Readiness</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Corporate Security</h3>
+                    <p>Comprehensive security solutions for businesses and corporate facilities.</p>
+                    <ul class="service-features">
+                        <li>Facility Security</li>
+                        <li>Risk Management</li>
+                        <li>Emergency Response</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Consultation</h3>
+                    <p>Strategic security consulting and risk assessment services.</p>
+                    <ul class="service-features">
+                        <li>Security Audits</li>
+                        <li>Strategic Planning</li>
+                        <li>Protocol Development</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">VETERAN OPERATORS</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">
+                            <span>SGT</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Marcus "Steel" Rodriguez</h3>
+                        <p class="member-rank">Former Army Ranger</p>
+                        <p class="member-specialty">Tactical Operations Specialist</p>
+                        <div class="member-stats">
+                            <span>8 Years Active Duty</span>
+                            <span>3 Combat Deployments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">
+                            <span>CPT</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Sarah "Phoenix" Chen</h3>
+                        <p class="member-rank">Former Marine Officer</p>
+                        <p class="member-specialty">Security Consultant</p>
+                        <div class="member-stats">
+                            <span>10 Years Service</span>
+                            <span>Force Recon Veteran</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">
+                            <span>SSG</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>David "Hawk" Thompson</h3>
+                        <p class="member-rank">Former Navy SEAL</p>
+                        <p class="member-specialty">Training Instructor</p>
+                        <div class="member-stats">
+                            <span>12 Years Service</span>
+                            <span>Special Operations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">ESTABLISH CONTACT</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Mission Briefing</h3>
+                    <p>Ready to deploy professional security solutions? Our veteran team is standing by for immediate response.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-label">SECURE LINE:</span>
+                            <span class="contact-value">+1 (555) TACTICAL</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">INTEL CHANNEL:</span>
+                            <span class="contact-value">ops@elitetactical.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">OPERATIONAL BASE:</span>
+                            <span class="contact-value">Classified Location, USA</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-label">RESPONSE TIME:</span>
+                            <span class="contact-value">24/7 Emergency Ready</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Call Sign / Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Secure Email" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Select Mission Type</option>
+                                <option value="personal">Personal Security</option>
+                                <option value="training">Tactical Training</option>
+                                <option value="corporate">Corporate Security</option>
+                                <option value="consultation">Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Mission Details..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">TRANSMIT MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">ELITE</span>
+                    <span class="logo-accent">TACTICAL</span>
+                </div>
+                <p class="footer-text">Professional security services by veterans, for those who demand excellence.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#team">Team</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Elite Tactical Operations. All rights reserved. | Veteran Owned & Operated</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>

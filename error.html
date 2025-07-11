@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Mission Failed | Elite Tactical Services</title>
+    <meta name="description" content="Page not found - Elite Tactical Services">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="error-page">
+    <div class="error-container">
+        <div class="error-background">
+            <div class="grid-overlay"></div>
+        </div>
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <div class="error-title">MISSION FAILED</div>
+            <div class="error-subtitle">Target Not Found</div>
+            <p class="error-description">
+                The requested coordinates could not be located. The target may have been compromised or relocated.
+            </p>
+            <div class="error-status">
+                <div class="status-item">
+                    <span class="status-label">STATUS:</span>
+                    <span class="status-value error">OBJECTIVE MISSING</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">LOCATION:</span>
+                    <span class="status-value">UNKNOWN</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">ACTION:</span>
+                    <span class="status-value success">RTB RECOMMENDED</span>
+                </div>
+            </div>
+            <div class="error-actions">
+                <button class="btn btn-primary" onclick="window.location.href='index.html'">RETURN TO BASE</button>
+                <button class="btn btn-secondary" onclick="window.history.back()">PREVIOUS POSITION</button>
+            </div>
+        </div>
+        <div class="error-terminal">
+            <div class="terminal-header">
+                <span class="terminal-title">TACTICAL_SYSTEM_v2.1</span>
+                <div class="terminal-controls">
+                    <span class="control"></span>
+                    <span class="control"></span>
+                    <span class="control"></span>
+                </div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line">
+                    <span class="prompt">elite@tactical:~$</span>
+                    <span class="command">locate target.html</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="error-text">ERROR: File not found</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">elite@tactical:~$</span>
+                    <span class="command">scan -r /sectors/</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="warning-text">WARNING: Target not in operational area</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">elite@tactical:~$</span>
+                    <span class="command">recommend rtb</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="success-text">SUGGESTION: Return to base coordinates</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="prompt">elite@tactical:~$</span>
+                    <span class="cursor">_</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
