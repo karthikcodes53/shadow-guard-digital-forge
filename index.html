@@ -76,7 +76,7 @@
         <div class="container">
             <h2 class="section-title">TACTICAL SERVICES</h2>
             <div class="services-grid">
-                <div class="service-card">
+                <button class="service-button" onclick="selectService('personal')">
                     <div class="service-icon">🛡️</div>
                     <h3>Personal Security</h3>
                     <p>Executive protection and personal security services with military precision and discretion.</p>
@@ -85,8 +85,8 @@
                         <li>Threat Assessment</li>
                         <li>Secure Transport</li>
                     </ul>
-                </div>
-                <div class="service-card">
+                </button>
+                <button class="service-button" onclick="selectService('training')">
                     <div class="service-icon">🎯</div>
                     <h3>Tactical Training</h3>
                     <p>Professional firearms and tactical training programs designed by combat veterans.</p>
@@ -95,8 +95,8 @@
                         <li>Tactical Movement</li>
                         <li>Combat Readiness</li>
                     </ul>
-                </div>
-                <div class="service-card">
+                </button>
+                <button class="service-button" onclick="selectService('corporate')">
                     <div class="service-icon">🏢</div>
                     <h3>Corporate Security</h3>
                     <p>Comprehensive security solutions for businesses and corporate facilities.</p>
@@ -105,8 +105,8 @@
                         <li>Risk Management</li>
                         <li>Emergency Response</li>
                     </ul>
-                </div>
-                <div class="service-card">
+                </button>
+                <button class="service-button" onclick="selectService('consultation')">
                     <div class="service-icon">🔍</div>
                     <h3>Consultation</h3>
                     <p>Strategic security consulting and risk assessment services.</p>
@@ -115,7 +115,7 @@
                         <li>Strategic Planning</li>
                         <li>Protocol Development</li>
                     </ul>
-                </div>
+                </button>
             </div>
         </div>
     </section>
@@ -123,56 +123,56 @@
     <!-- Team Section -->
     <section id="team" class="team">
         <div class="container">
-            <h2 class="section-title">VETERAN OPERATORS</h2>
+            <h2 class="section-title">INDIAN SPECIAL FORCES</h2>
             <div class="team-grid">
-                <div class="team-member">
+                <button class="team-button" onclick="selectOperator('parasf')">
                     <div class="member-photo">
                         <div class="photo-placeholder">
-                            <span>SGT</span>
+                            <span>PSF</span>
                         </div>
                     </div>
                     <div class="member-info">
-                        <h3>Marcus "Steel" Rodriguez</h3>
-                        <p class="member-rank">Former Army Ranger</p>
-                        <p class="member-specialty">Tactical Operations Specialist</p>
+                        <h3>Major Arjun "Viper" Singh</h3>
+                        <p class="member-rank">Former Para SF (Special Forces)</p>
+                        <p class="member-specialty">Counter-Terrorism Specialist</p>
                         <div class="member-stats">
-                            <span>8 Years Active Duty</span>
-                            <span>3 Combat Deployments</span>
+                            <span>12 Years Active Duty</span>
+                            <span>4 Counter-Terror Ops</span>
                         </div>
                     </div>
-                </div>
-                <div class="team-member">
+                </button>
+                <button class="team-button" onclick="selectOperator('marcos')">
                     <div class="member-photo">
                         <div class="photo-placeholder">
-                            <span>CPT</span>
+                            <span>MRC</span>
                         </div>
                     </div>
                     <div class="member-info">
-                        <h3>Sarah "Phoenix" Chen</h3>
-                        <p class="member-rank">Former Marine Officer</p>
-                        <p class="member-specialty">Security Consultant</p>
+                        <h3>Commander Vikram "Shark" Patel</h3>
+                        <p class="member-rank">Former MARCOS (Marine Commandos)</p>
+                        <p class="member-specialty">Maritime Operations Expert</p>
+                        <div class="member-stats">
+                            <span>14 Years Service</span>
+                            <span>Naval Special Ops</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="team-button" onclick="selectOperator('garud')">
+                    <div class="member-photo">
+                        <div class="photo-placeholder">
+                            <span>GRD</span>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Wing Commander Rajesh "Eagle" Kumar</h3>
+                        <p class="member-rank">Former Garud Commando Force</p>
+                        <p class="member-specialty">Airborne Operations Specialist</p>
                         <div class="member-stats">
                             <span>10 Years Service</span>
-                            <span>Force Recon Veteran</span>
+                            <span>Air Force Special Ops</span>
                         </div>
                     </div>
-                </div>
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder">
-                            <span>SSG</span>
-                        </div>
-                    </div>
-                    <div class="member-info">
-                        <h3>David "Hawk" Thompson</h3>
-                        <p class="member-rank">Former Navy SEAL</p>
-                        <p class="member-specialty">Training Instructor</p>
-                        <div class="member-stats">
-                            <span>12 Years Service</span>
-                            <span>Special Operations</span>
-                        </div>
-                    </div>
-                </div>
+                </button>
             </div>
         </div>
     </section>
@@ -188,15 +188,15 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <span class="contact-label">SECURE LINE:</span>
-                            <span class="contact-value">+1 (555) TACTICAL</span>
+                            <span class="contact-value">+91 (800) TACTICAL</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-label">INTEL CHANNEL:</span>
-                            <span class="contact-value">ops@elitetactical.com</span>
+                            <span class="contact-value">ops@elitetactical.in</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-label">OPERATIONAL BASE:</span>
-                            <span class="contact-value">Classified Location, USA</span>
+                            <span class="contact-value">Classified Location, India</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-label">RESPONSE TIME:</span>

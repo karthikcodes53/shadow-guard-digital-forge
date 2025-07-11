@@ -1,75 +1,153 @@
 
-// Smooth scrolling and navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile navigation toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
+// Smooth scrolling for navigation links
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
         });
     }
+}
+
+// Service selection handler
+function selectService(serviceType) {
+    console.log(`Selected service: ${serviceType}`);
     
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-            
-            // Close mobile menu after clicking
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        });
+    // Add visual feedback
+    const serviceButtons = document.querySelectorAll('.service-button');
+    serviceButtons.forEach(button => {
+        button.style.transform = 'translateY(0)';
+        button.style.boxShadow = '';
     });
     
-    // Navbar background change on scroll
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-        }
+    // Highlight selected service
+    event.target.closest('.service-button').style.transform = 'translateY(-8px)';
+    event.target.closest('.service-button').style.boxShadow = '0 15px 35px rgba(59, 130, 246, 0.4)';
+    
+    // Auto-fill contact form
+    const serviceSelect = document.getElementById('service');
+    if (serviceSelect) {
+        serviceSelect.value = serviceType;
+    }
+    
+    // Scroll to contact section after a short delay
+    setTimeout(() => {
+        scrollToSection('contact');
+    }, 800);
+    
+    // Show tactical feedback
+    showTacticalMessage(`Service Module ${serviceType.toUpperCase()} Selected - Stand By...`);
+}
+
+// Operator selection handler
+function selectOperator(operatorType) {
+    console.log(`Selected operator: ${operatorType}`);
+    
+    // Add visual feedback
+    const teamButtons = document.querySelectorAll('.team-button');
+    teamButtons.forEach(button => {
+        button.style.transform = 'translateY(0)';
+        button.style.boxShadow = '';
     });
     
-    // Contact form handling
+    // Highlight selected operator
+    event.target.closest('.team-button').style.transform = 'translateY(-8px)';
+    event.target.closest('.team-button').style.boxShadow = '0 15px 35px rgba(16, 185, 129, 0.4)';
+    
+    // Show operator info
+    const operatorInfo = {
+        'parasf': 'Para SF - India\'s premier special forces unit specializing in counter-terrorism and unconventional warfare.',
+        'marcos': 'MARCOS - Elite naval special forces trained for maritime operations and amphibious warfare.',
+        'garud': 'Garud - Air Force special forces specialized in airfield security and combat search & rescue.'
+    };
+    
+    showTacticalMessage(`Operator Profile: ${operatorInfo[operatorType]}`);
+}
+
+// Tactical message display
+function showTacticalMessage(message) {
+    // Create or update tactical message overlay
+    let messageOverlay = document.getElementById('tactical-message');
+    
+    if (!messageOverlay) {
+        messageOverlay = document.createElement('div');
+        messageOverlay.id = 'tactical-message';
+        messageOverlay.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid #374151;
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            color: #10b981;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        `;
+        document.body.appendChild(messageOverlay);
+    }
+    
+    messageOverlay.textContent = message;
+    
+    // Show message
+    setTimeout(() => {
+        messageOverlay.style.opacity = '1';
+        messageOverlay.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Hide message after delay
+    setTimeout(() => {
+        messageOverlay.style.opacity = '0';
+        messageOverlay.style.transform = 'translateX(100%)';
+    }, 4000);
+}
+
+// Contact form handling
+document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(this);
-            const data = {
-                name: formData.get('name'),
-                email: formData.get('email'),
-                service: formData.get('service'),
-                message: formData.get('message')
-            };
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const service = formData.get('service');
+            const message = formData.get('message');
             
             // Simulate form submission
-            showNotification('Message transmitted successfully! Our team will respond within 24 hours.', 'success');
+            showTacticalMessage('Message Transmitted - Awaiting Response...');
             
-            // Reset form
-            this.reset();
+            // Reset form after delay
+            setTimeout(() => {
+                contactForm.reset();
+                showTacticalMessage('Transmission Complete - Stand By for Contact');
+            }, 2000);
+            
+            console.log('Form submitted:', { name, email, service, message });
         });
     }
     
-    // Scroll animations
+    // Add navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.background = 'rgba(26, 26, 26, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+        }
+    });
+    
+    // Add loading animation to page elements
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -83,160 +161,68 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
     
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.service-card, .team-member, .contact-info, .contact-form');
-    animatedElements.forEach(el => {
-        observer.observe(el);
+    // Observe service and team buttons
+    document.querySelectorAll('.service-button, .team-button').forEach(button => {
+        observer.observe(button);
     });
     
-    // Terminal typing effect for error page
-    if (document.querySelector('.error-page')) {
-        typewriterEffect();
-    }
+    // Add click sound effect simulation
+    document.querySelectorAll('.service-button, .team-button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Visual click feedback
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    });
 });
 
-// Helper function to scroll to section
-function scrollToSection(sectionId) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-        const offsetTop = element.offsetTop - 80;
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
+// Mobile navigation toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.classList.toggle('active');
         });
     }
-}
+});
 
-// Notification system
-function showNotification(message, type = 'info') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-icon">${getNotificationIcon(type)}</span>
-            <span class="notification-message">${message}</span>
-        </div>
-    `;
+// Easter egg: Konami code
+let konamiCode = [];
+const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up Up Down Down Left Right Left Right B A
+
+document.addEventListener('keydown', function(e) {
+    konamiCode.push(e.keyCode);
     
-    // Add notification styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 2rem;
-        background: var(--secondary-dark);
-        border: 1px solid var(--border-color);
-        border-radius: 10px;
-        padding: 1rem 1.5rem;
-        color: var(--text-primary);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        z-index: 9999;
-        transform: translateX(400px);
-        transition: transform 0.3s ease;
-        max-width: 350px;
-    `;
-    
-    if (type === 'success') {
-        notification.style.borderColor = 'var(--accent-green)';
-        notification.style.boxShadow = '0 10px 30px rgba(16, 185, 129, 0.3)';
-    } else if (type === 'error') {
-        notification.style.borderColor = 'var(--accent-amber)';
-        notification.style.boxShadow = '0 10px 30px rgba(217, 119, 6, 0.3)';
+    if (konamiCode.length > konamiSequence.length) {
+        konamiCode.shift();
     }
     
-    // Add to DOM
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Remove after 5 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(400px)';
+    if (konamiCode.length === konamiSequence.length && 
+        konamiCode.every((code, index) => code === konamiSequence[index])) {
+        showTacticalMessage('CLASSIFIED ACCESS GRANTED - WELCOME OPERATIVE');
+        
+        // Add special effect
+        document.body.style.animation = 'tacticalFlash 0.5s ease-in-out 3';
+        
+        // Reset after effect
         setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
-}
-
-function getNotificationIcon(type) {
-    switch (type) {
-        case 'success': return '✅';
-        case 'error': return '❌';
-        case 'warning': return '⚠️';
-        default: return 'ℹ️';
-    }
-}
-
-// Typewriter effect for error page terminal
-function typewriterEffect() {
-    const lines = document.querySelectorAll('.terminal-line');
-    let currentLine = 0;
-    
-    function typeLine() {
-        if (currentLine < lines.length) {
-            const line = lines[currentLine];
-            line.style.opacity = '0';
-            
-            setTimeout(() => {
-                line.style.opacity = '1';
-                line.style.animation = 'fadeIn 0.5s ease-in';
-                currentLine++;
-                typeLine();
-            }, 500);
-        }
-    }
-    
-    typeLine();
-}
-
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero-background');
-    
-    if (parallax) {
-        const speed = scrolled * 0.5;
-        parallax.style.transform = `translateY(${speed}px)`;
+            document.body.style.animation = '';
+            konamiCode = [];
+        }, 2000);
     }
 });
 
-// Add glow effect on hover for buttons
-document.addEventListener('mouseover', function(e) {
-    if (e.target.classList.contains('btn-primary')) {
-        e.target.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.6)';
-    } else if (e.target.classList.contains('btn-secondary')) {
-        e.target.style.boxShadow = '0 0 30px rgba(59, 130, 246, 0.6)';
+// Add tactical flash animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes tacticalFlash {
+        0%, 100% { filter: brightness(1); }
+        50% { filter: brightness(1.2) hue-rotate(90deg); }
     }
-});
-
-document.addEventListener('mouseout', function(e) {
-    if (e.target.classList.contains('btn-primary')) {
-        e.target.style.boxShadow = '0 0 20px rgba(16, 185, 129, 0.3)';
-    } else if (e.target.classList.contains('btn-secondary')) {
-        e.target.style.boxShadow = '0 0 10px rgba(59, 130, 246, 0.3)';
-    }
-});
-
-// Add loading animation for page transitions
-window.addEventListener('beforeunload', function() {
-    document.body.style.opacity = '0';
-});
-
-// Console easter egg
-console.log(`
-███████╗██╗     ██╗████████╗███████╗    ████████╗ █████╗  ██████╗████████╗██╗ ██████╗ █████╗ ██╗     
-██╔════╝██║     ██║╚══██╔══╝██╔════╝    ╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝██║██╔════╝██╔══██╗██║     
-█████╗  ██║     ██║   ██║   █████╗         ██║   ███████║██║        ██║   ██║██║     ███████║██║     
-██╔══╝  ██║     ██║   ██║   ██╔══╝         ██║   ██╔══██║██║        ██║   ██║██║     ██╔══██║██║     
-███████╗███████╗██║   ██║   ███████╗       ██║   ██║  ██║╚██████╗   ██║   ██║╚██████╗██║  ██║███████╗
-╚══════╝╚══════╝╚═╝   ╚═╝   ╚══════╝       ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝
-
-Mission Status: OPERATIONAL
-Security Level: CLASSIFIED
-Access Level: AUTHORIZED PERSONNEL ONLY
-
-Welcome to Elite Tactical Operations.
-`);
+`;
+document.head.appendChild(style);

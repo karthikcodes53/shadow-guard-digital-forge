@@ -12,12 +12,14 @@
     --accent-blue: #1e3a8a;
     --accent-green: #059669;
     --accent-amber: #d97706;
+    --accent-orange: #ea580c;
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
     --text-accent: #3b82f6;
     --border-color: #374151;
     --glow-blue: #3b82f6;
     --glow-green: #10b981;
+    --glow-orange: #f97316;
     --font-primary: 'Orbitron', monospace;
     --font-secondary: 'Rajdhani', sans-serif;
 }
@@ -142,11 +144,11 @@ body {
     height: 100%;
     background: 
         /* Soldier silhouette overlay */
-        radial-gradient(ellipse at 75% 60%, rgba(0, 0, 0, 0.3) 20%, transparent 50%),
+        radial-gradient(ellipse at 75% 60%, rgba(0, 0, 0, 0.4) 25%, transparent 55%),
         /* Dark tactical overlay */
         linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(26, 26, 26, 0.6) 50%, rgba(30, 58, 138, 0.4) 100%),
-        /* Soldier in camo with rifle */
-        url('https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=800&h=600&fit=crop&crop=center') center right/cover no-repeat,
+        /* Soldier in combat gear with rifle */
+        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop&crop=center') center right/cover no-repeat,
         /* Tactical vehicles background */
         url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="rgba(255,255,255,0.03)"><path d="M10 20h15v8h-15z"/><path d="M30 25h20v6h-20z"/><path d="M55 22h12v10h-12z"/><path d="M15 40h25v5h-25z"/><path d="M45 35h18v8h-18z"/><path d="M20 60h30v4h-30z"/><path d="M55 58h15v7h-15z"/></g></svg>') repeat,
         /* Base dark gradient */
@@ -385,35 +387,46 @@ body {
     gap: 2rem;
 }
 
-.service-card {
+.service-button {
     background: var(--tertiary-dark);
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+    font-size: 1rem;
 }
 
-.service-card::before {
+.service-button::before {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
     transition: left 0.5s ease;
 }
 
-.service-card:hover::before {
+.service-button:hover::before {
     left: 100%;
 }
 
-.service-card:hover {
+.service-button:hover {
     transform: translateY(-5px);
     border-color: var(--accent-blue);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, var(--tertiary-dark), rgba(59, 130, 246, 0.1));
+}
+
+.service-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(59, 130, 246, 0.4);
 }
 
 .service-icon {
@@ -422,14 +435,14 @@ body {
     filter: grayscale(100%) brightness(1.2);
 }
 
-.service-card h3 {
+.service-button h3 {
     font-family: var(--font-primary);
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--accent-green);
 }
 
-.service-card p {
+.service-button p {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     line-height: 1.6;
@@ -482,19 +495,45 @@ body {
     gap: 2rem;
 }
 
-.team-member {
+.team-button {
     background: var(--secondary-dark);
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     text-align: center;
     transition: all 0.3s ease;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-family: var(--font-secondary);
+    position: relative;
+    overflow: hidden;
 }
 
-.team-member:hover {
+.team-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.team-button:hover::before {
+    left: 100%;
+}
+
+.team-button:hover {
     transform: translateY(-5px);
     border-color: var(--accent-green);
-    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+    background: linear-gradient(135deg, var(--secondary-dark), rgba(16, 185, 129, 0.1));
+}
+
+.team-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
 }
 
 .member-photo {
@@ -504,7 +543,7 @@ body {
 .photo-placeholder {
     width: 120px;
     height: 120px;
-    background: linear-gradient(135deg, var(--tertiary-dark), var(--accent-blue));
+    background: linear-gradient(135deg, var(--tertiary-dark), var(--accent-orange));
     border-radius: 50%;
     margin: 0 auto;
     display: flex;
@@ -526,7 +565,7 @@ body {
 }
 
 .member-rank {
-    color: var(--accent-green);
+    color: var(--accent-orange);
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
