@@ -1,4 +1,3 @@
-
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -141,8 +140,47 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, var(--accent-blue) 100%);
+    background: 
+        /* Soldier silhouette overlay */
+        radial-gradient(ellipse at 75% 60%, rgba(0, 0, 0, 0.3) 20%, transparent 50%),
+        /* Dark tactical overlay */
+        linear-gradient(135deg, rgba(10, 10, 10, 0.8) 0%, rgba(26, 26, 26, 0.6) 50%, rgba(30, 58, 138, 0.4) 100%),
+        /* Soldier in camo with rifle */
+        url('https://images.unsplash.com/photo-1487887235947-a955ef187fcc?w=800&h=600&fit=crop&crop=center') center right/cover no-repeat,
+        /* Tactical vehicles background */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="rgba(255,255,255,0.03)"><path d="M10 20h15v8h-15z"/><path d="M30 25h20v6h-20z"/><path d="M55 22h12v10h-12z"/><path d="M15 40h25v5h-25z"/><path d="M45 35h18v8h-18z"/><path d="M20 60h30v4h-30z"/><path d="M55 58h15v7h-15z"/></g></svg>') repeat,
+        /* Base dark gradient */
+        linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 50%, var(--accent-blue) 100%);
     opacity: 0.9;
+}
+
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* Weapon silhouettes */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g fill="rgba(16,185,129,0.05)" transform="rotate(15)"><rect x="20" y="80" width="40" height="3"/><rect x="18" y="78" width="3" height="7"/><rect x="60" y="79" width="8" height="5"/><circle cx="70" cy="81.5" r="2"/></g><g fill="rgba(59,130,246,0.05)" transform="rotate(-20) translate(100,50)"><rect x="10" y="90" width="35" height="2"/><rect x="8" y="88" width="2" height="6"/><rect x="45" y="89" width="6" height="4"/><circle cx="53" cy="91" r="1.5"/></g></svg>') repeat,
+        /* Tactical grid pattern */
+        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
+
+.hero-background::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: 
+        /* Ground tactical elements */
+        linear-gradient(to top, rgba(10, 10, 10, 0.8) 0%, transparent 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50"><g fill="rgba(255,255,255,0.02)"><ellipse cx="30" cy="40" rx="25" ry="8"/><ellipse cx="80" cy="35" rx="20" ry="6"/><ellipse cx="120" cy="42" rx="18" ry="5"/></g></svg>') repeat-x bottom;
+    pointer-events: none;
 }
 
 .grid-overlay {
@@ -152,15 +190,25 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: gridMove 20s linear infinite;
+        /* Tactical crosshair pattern */
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+        /* Grid lines */
+        linear-gradient(rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 80px 80px, 80px 80px, 50px 50px, 50px 50px;
+    animation: gridMove 25s linear infinite, tacticalScan 8s ease-in-out infinite alternate;
 }
 
 @keyframes gridMove {
     0% { transform: translate(0, 0); }
     100% { transform: translate(50px, 50px); }
+}
+
+@keyframes tacticalScan {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { opacity: 0.3; }
 }
 
 .hero-content {
@@ -317,6 +365,20 @@ body {
     box-shadow: 0 0 10px var(--glow-blue);
 }
 
+.services::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="rgba(255,255,255,0.01)"><path d="M80 10l8 15h-16z"/><circle cx="85" cy="35" r="3"/><rect x="82" y="40" width="6" height="12"/><path d="M20 70l5 8h-10z"/><circle cx="22" cy="85" r="2"/></g></svg>') repeat,
+        radial-gradient(ellipse at 90% 10%, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -396,6 +458,22 @@ body {
 .team {
     padding: 5rem 0;
     background: var(--primary-dark);
+    position: relative;
+}
+
+.team::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* Aircraft silhouettes */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100"><g fill="rgba(59,130,246,0.03)" transform="rotate(25)"><path d="M50 20l15 5v2l-15 5v-12z"/><path d="M48 22h20v8h-20z"/><circle cx="45" cy="26" r="2"/></g><g fill="rgba(16,185,129,0.03)" transform="rotate(-15) translate(80,30)"><path d="M20 40l12 3v1l-12 3v-7z"/><path d="M18 41h15v5h-15z"/><circle cx="16" cy="43.5" r="1.5"/></g></svg>') repeat,
+        radial-gradient(ellipse at 10% 90%, rgba(59, 130, 246, 0.03) 0%, transparent 60%);
+    opacity: 0.7;
+    pointer-events: none;
 }
 
 .team-grid {
