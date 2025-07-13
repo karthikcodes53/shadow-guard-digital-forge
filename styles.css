@@ -143,17 +143,17 @@ body {
     width: 100%;
     height: 100%;
     background: 
-        /* Much lighter tactical overlay to show soldier more prominently */
-        radial-gradient(ellipse at 75% 50%, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.3) 40%, transparent 70%),
-        /* Reduced primary tactical gradient opacity */
-        linear-gradient(135deg, rgba(10, 10, 10, 0.6) 0%, rgba(26, 26, 26, 0.4) 40%, rgba(30, 58, 138, 0.2) 100%),
-        /* Enhanced soldier image - much more visible */
-        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=800&fit=crop&crop=center&sat=0.1&con=0.4&bri=0.1') center right/cover no-repeat,
-        /* Lighter tactical grid pattern */
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="rgba(16,185,129,0.01)"><path d="M10 20h15v8h-15z"/><path d="M30 25h20v6h-20z"/><path d="M55 22h12v10h-12z"/><path d="M15 40h25v5h-25z"/><path d="M45 35h18v8h-18z"/><path d="M20 60h30v4h-30z"/><path d="M55 58h15v7h-15z"/></g></svg>') repeat,
-        /* Lighter base tactical gradient */
-        linear-gradient(135deg, rgba(10, 10, 10, 0.7) 0%, rgba(26, 26, 26, 0.5) 50%, rgba(30, 58, 138, 0.3) 100%);
-    opacity: 0.85;
+        /* Very light tactical overlay to show soldier prominently */
+        radial-gradient(ellipse at 75% 50%, rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0.15) 40%, transparent 70%),
+        /* Much reduced primary tactical gradient opacity */
+        linear-gradient(135deg, rgba(10, 10, 10, 0.3) 0%, rgba(26, 26, 26, 0.2) 40%, rgba(30, 58, 138, 0.1) 100%),
+        /* Enhanced soldier image - maximum visibility */
+        url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=800&fit=crop&crop=center&sat=0.2&con=0.6&bri=0.3') center right/cover no-repeat,
+        /* Very light tactical grid pattern */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="rgba(16,185,129,0.005)"><path d="M10 20h15v8h-15z"/><path d="M30 25h20v6h-20z"/><path d="M55 22h12v10h-12z"/><path d="M15 40h25v5h-25z"/><path d="M45 35h18v8h-18z"/><path d="M20 60h30v4h-30z"/><path d="M55 58h15v7h-15z"/></g></svg>') repeat,
+        /* Very light base tactical gradient */
+        linear-gradient(135deg, rgba(10, 10, 10, 0.4) 0%, rgba(26, 26, 26, 0.3) 50%, rgba(30, 58, 138, 0.15) 100%);
+    opacity: 0.7;
 }
 
 .hero-background::before {
@@ -164,12 +164,12 @@ body {
     width: 100%;
     height: 100%;
     background: 
-        /* Much lighter weapon silhouettes */
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g fill="rgba(16,185,129,0.03)" transform="rotate(15)"><rect x="20" y="80" width="50" height="4"/><rect x="18" y="77" width="4" height="10"/><rect x="70" y="78" width="12" height="8"/><circle cx="85" cy="82" r="3"/><path d="M15 85l8-2v4l-8-2z"/></g><g fill="rgba(59,130,246,0.03)" transform="rotate(-20) translate(100,50)"><rect x="10" y="90" width="45" height="3"/><rect x="8" y="87" width="3" height="9"/><rect x="55" y="88" width="10" height="7"/><circle cx="68" cy="91.5" r="2.5"/><path d="M5 93l6-1v3l-6-2z"/></g></svg>') repeat,
-        /* Much lighter camouflage pattern enhancement */
-        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.04) 0%, transparent 50%),
-        radial-gradient(circle at 60% 60%, rgba(234, 88, 12, 0.02) 0%, transparent 40%);
+        /* Very light weapon silhouettes */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g fill="rgba(16,185,129,0.015)" transform="rotate(15)"><rect x="20" y="80" width="50" height="4"/><rect x="18" y="77" width="4" height="10"/><rect x="70" y="78" width="12" height="8"/><circle cx="85" cy="82" r="3"/><path d="M15 85l8-2v4l-8-2z"/></g><g fill="rgba(59,130,246,0.015)" transform="rotate(-20) translate(100,50)"><rect x="10" y="90" width="45" height="3"/><rect x="8" y="87" width="3" height="9"/><rect x="55" y="88" width="10" height="7"/><circle cx="68" cy="91.5" r="2.5"/><path d="M5 93l6-1v3l-6-2z"/></g></svg>') repeat,
+        /* Very light camouflage pattern enhancement */
+        radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 60% 60%, rgba(234, 88, 12, 0.01) 0%, transparent 40%);
 }
 
 .hero-background::after {
@@ -180,10 +180,10 @@ body {
     width: 100%;
     height: 30%;
     background: 
-        /* Much lighter ground tactical elements */
-        linear-gradient(to top, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.2) 60%, transparent 100%),
-        /* Lighter tactical equipment shadows */
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50"><g fill="rgba(255,255,255,0.02)"><ellipse cx="30" cy="40" rx="25" ry="8"/><ellipse cx="80" cy="35" rx="20" ry="6"/><ellipse cx="120" cy="42" rx="18" ry="5"/><rect x="25" y="35" width="10" height="3" rx="1"/><rect x="75" y="30" width="8" height="2" rx="1"/></g></svg>') repeat-x bottom;
+        /* Very light ground tactical elements */
+        linear-gradient(to top, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.1) 60%, transparent 100%),
+        /* Very light tactical equipment shadows */
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 50"><g fill="rgba(255,255,255,0.01)"><ellipse cx="30" cy="40" rx="25" ry="8"/><ellipse cx="80" cy="35" rx="20" ry="6"/><ellipse cx="120" cy="42" rx="18" ry="5"/><rect x="25" y="35" width="10" height="3" rx="1"/><rect x="75" y="30" width="8" height="2" rx="1"/></g></svg>') repeat-x bottom;
     pointer-events: none;
 }
 
@@ -194,12 +194,12 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        /* Much lighter tactical crosshair pattern */
-        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-        /* Much lighter grid lines */
-        linear-gradient(rgba(59, 130, 246, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.02) 1px, transparent 1px);
+        /* Very light tactical crosshair pattern */
+        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.02) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+        /* Very light grid lines */
+        linear-gradient(rgba(59, 130, 246, 0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.01) 1px, transparent 1px);
     background-size: 80px 80px, 80px 80px, 50px 50px, 50px 50px;
     animation: gridMove 25s linear infinite, tacticalScan 8s ease-in-out infinite alternate;
 }
@@ -210,9 +210,9 @@ body {
 }
 
 @keyframes tacticalScan {
-    0% { opacity: 0.2; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0.2; }
+    0% { opacity: 0.1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.1; }
 }
 
 .hero-content {
